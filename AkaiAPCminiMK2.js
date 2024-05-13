@@ -8,6 +8,15 @@ function setLed(pad, color)
 
 //Commands
 
+function uiledon(pad)
+{
+	local.values.uiLeds.getChild("pad"+pad[0]).set(1);
+}
+
+function uiledoff(pad)
+{
+	local.values.uiLeds.getChild("pad"+pad[0]).set(0);
+}
 
 function setPadDefColor(pad, colors, mode)
 {
@@ -64,6 +73,12 @@ function resetColors()
 
 }
 
+function resetUI()
+{
+	for(var i=100;i<108;i++){uiledon([i]);uiledoff([i]);}
+	for(var i=112;i<120;i++){uiledon([i]);uiledoff([i]);}
+}
+
 //Events
 
 function moduleParameterChanged(param)
@@ -89,13 +104,18 @@ function moduleValueChanged(value) {
 			script.log(value.name + " Couleur : " + val + " Mode : " + mod[0]);
 		}
 		if(Changement){local.sendNoteOn(mod[0], value.name.substring(3, 5), val);}
+		if(value.getParent().name == "uiLeds")
+		{
+			local.sendNoteOn(1,value.name.substring(3,6),value.get());
+		}
 }
 
 function noteOnEvent(channel, pitch, velocity)
 {
 	//script.log("Note on received "+channel+", "+pitch+", "+velocity);
 	i = pitch;
-    local.values.pads.getChild("pad" + i).set(1);
+		if (i<=63){local.values.pads.getChild("pad" + i).set(1);}
+		else {local.values.ui.getChild("pad" + i).set(1);}
 }
 
 
@@ -103,7 +123,8 @@ function noteOffEvent(channel, pitch, velocity)
 {
 	//script.log("Note off received "+channel+", "+pitch+", "+velocity);
 	i = pitch;
-    local.values.pads.getChild("pad" + i).set(0);
+	if (i<=63){local.values.pads.getChild("pad" + i).set(0);}
+	else {local.values.ui.getChild("pad" + i).set(0);}
 }
 
 function ccEvent(channel, number, value)
@@ -120,3 +141,4 @@ function sysExEvent(data)
 
 
 resetColors();
+resetUI();

@@ -23,6 +23,47 @@
       "AkaiAPCminiMK2.js"
    ],
    "values":{
+      "UI":{
+         "type":"Container",
+         "collapsed":true,
+            "Pad 100":   { "type":"Boolean"},
+            "Pad 101":   { "type":"Boolean"},
+            "Pad 102":   { "type":"Boolean"},
+            "Pad 103":   { "type":"Boolean"},
+            "Pad 104":   { "type":"Boolean"},
+            "Pad 105":   { "type":"Boolean"},
+            "Pad 106":   { "type":"Boolean"},
+            "Pad 107":   { "type":"Boolean"},
+            "Pad 112":   { "type":"Boolean"},
+            "Pad 113":   { "type":"Boolean"},
+            "Pad 114":   { "type":"Boolean"},
+            "Pad 115":   { "type":"Boolean"},
+            "Pad 116":   { "type":"Boolean"},
+            "Pad 117":   { "type":"Boolean"},
+            "Pad 118":   { "type":"Boolean"},
+            "Pad 119":   { "type":"Boolean"},
+            "Pad 122":   { "type":"Boolean"}
+      },
+      "UI Leds":{
+         "type":"Container",
+         "collapsed":true,
+            "Pad 100":   { "type":"Boolean"},
+            "Pad 101":   { "type":"Boolean"},
+            "Pad 102":   { "type":"Boolean"},
+            "Pad 103":   { "type":"Boolean"},
+            "Pad 104":   { "type":"Boolean"},
+            "Pad 105":   { "type":"Boolean"},
+            "Pad 106":   { "type":"Boolean"},
+            "Pad 107":   { "type":"Boolean"},
+            "Pad 112":   { "type":"Boolean"},
+            "Pad 113":   { "type":"Boolean"},
+            "Pad 114":   { "type":"Boolean"},
+            "Pad 115":   { "type":"Boolean"},
+            "Pad 116":   { "type":"Boolean"},
+            "Pad 117":   { "type":"Boolean"},
+            "Pad 118":   { "type":"Boolean"},
+            "Pad 119":   { "type":"Boolean"}
+      },
       "Pads":{
          "type":"Container",
          "collapsed":true,
@@ -337,6 +378,64 @@
       "Reset All Pads Colors":{
          "menu":"",
          "callback":"resetColors"
+      },
+      "Set UI Led On":{
+         "menu":"",
+         "callback":"uiledon",
+         "parameters":{
+            "Pad":{
+               "type":"Enum",
+               "options":{
+                  "100 - Volume":[100],
+                  "101 - Pan":[101],
+                  "102 - Send":[102],
+                  "103 - Device":[103],
+                  "104 - Up":[104],
+                  "105 - Down":[105],
+                  "106 - Left":[106],
+                  "107 - Right":[107],
+                  "112 - Clip Stop":[112],
+                  "113 - Solo":[113],
+                  "114 - Mute":[114],
+                  "115 - Rec Arm":[115],
+                  "116 - Select":[116],
+                  "117 - Drum":[117],
+                  "118 - Note":[118],
+                  "119 - Stop All":[119]
+               }
+            }
+         }
+      },
+      "Set UI Led Off":{
+         "menu":"",
+         "callback":"uiledoff",
+         "parameters":{
+            "Pad":{
+               "type":"Enum",
+               "options":{
+                  "100 - Volume":[100],
+                  "101 - Pan":[101],
+                  "102 - Send":[102],
+                  "103 - Device":[103],
+                  "104 - Up":[104],
+                  "105 - Down":[105],
+                  "106 - Left":[106],
+                  "107 - Right":[107],
+                  "112 - Clip Stop":[112],
+                  "113 - Solo":[113],
+                  "114 - Mute":[114],
+                  "115 - Rec Arm":[115],
+                  "116 - Select":[116],
+                  "117 - Drum":[117],
+                  "118 - Note":[118],
+                  "119 - Stop All":[119]
+               }
+            }
+         }
+      },
+      "Reset UI Leds":{
+         "menu":"",
+         "callback":"resetUI"
       }
    }
 }
